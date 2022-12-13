@@ -1,3 +1,4 @@
+require 'colorize'
 answers = [
     # Положительные
     "Бесспорно",
@@ -32,6 +33,25 @@ answers = [
     "Я могу предсказывать будущее! \n Отвечу на твой вопрос: ",
     "Настало время рассказать о твоем будущем!\n Задавай свой вопрос:"
   ]
+  def animation
+    symbols = ["1","3","4","5"]
+    20.times do
+        symbols.each do |s|
+            puts s
+            sleep 0.01
+            system 'clear'
+        end
+    end
+  end
+
   puts greeting.sample
   user_question = gets.chomp
-  puts "#{answers.sample}"
+  animation
+  result = answers.sample
+  index = answers.index(result)
+  if index > 9
+    puts result.red
+  else
+    puts result.green
+  end
+  
